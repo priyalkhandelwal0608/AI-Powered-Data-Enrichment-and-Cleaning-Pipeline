@@ -1,32 +1,75 @@
-#  ETL pipeline using DuckDB 
+#  AI-Powered ETL Pipeline (Apache Beam + DuckDB)
 
-##  Overview
-This project demonstrates a complete **ETL (Extract, Transform, Load) pipeline** built using **Python and DuckDB**, along with an **interactive dashboard** developed in **Streamlit**.  
+##  Project Overview
 
-The application allows users to upload Airbnb listing data, perform data cleaning and transformation, and explore insights through dynamic visualizations.
+This project implements a **scalable ETL (Extract, Transform, Load) pipeline** using Apache Beam, Pandas, and DuckDB. It processes Airbnb listing data, performs cleaning and transformation, and stores the final structured data in a database for analytics and visualization.
 
 ---
 
-##  Features
+##  ETL Workflow
 
--  End-to-end ETL pipeline (Extract → Validate → Clean → Transform → Load)
--  Data validation (handling nulls, filtering invalid values)
--  Data cleaning (duplicate removal, column pruning)
--  Feature engineering (price categorization)
--  Interactive dashboard with filters and sliders
--  Real-time visualizations using Plotly
--  Download cleaned and filtered dataset as CSV
--  Optimized performance using Streamlit session state
--  In-memory DuckDB (no file lock issues)
+### 1. Extract
+
+* Reads raw CSV data using Pandas
+* Handles missing or inconsistent column formatting
+
+### 2. Transform
+
+* Cleans data (removes unnecessary columns, trims text)
+* Performs feature engineering:
+
+  * Categorizes listings into **Low, Medium, High price segments**
+
+### 3. Load
+
+* Saves processed data as CSV
+* Stores final dataset in DuckDB for fast querying
 
 ---
 
 ##  Tech Stack
 
-- **Python**
-- **DuckDB**
-- **Streamlit**
-- **Pandas**
-- **Plotly**
+* **Apache Beam** → Data processing pipeline
+* **Pandas** → Data manipulation
+* **DuckDB** → Lightweight analytical database
+* **Python** → Core programming language
+
+---
+
+##  Project Structure
+
+```
+ETL-Pipeline/
+│── app.py                # Streamlit dashboard (optional)
+│── pipeline.py           # ETL pipeline logic
+│── data/
+│   ├── AB_NYC_2019.csv  # Input dataset
+│   ├── output.csv       # Processed output
+│   └── airbnb.duckdb    # Database file
+│── requirements.txt
+│── README.md
+```
+
+---
+
+##  Installation and run
+- pip install -r requirements.txt
+- python pipeline.py
+- streamlit run app.py
+
+---
+
+##  Key Features
+
+*  Modular ETL design
+*  Scalable pipeline using Apache Beam
+*  Data cleaning & preprocessing
+*  Feature engineering (price categorization)
+*  Efficient storage with DuckDB
+*  Ready for dashboard integration
+
+---
+
+
 
 

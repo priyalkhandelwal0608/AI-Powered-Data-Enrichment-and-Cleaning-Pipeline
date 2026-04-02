@@ -13,7 +13,7 @@ def load_data():
         df = con.execute("SELECT * FROM listings").df()
     return df
 
-st.title("🏙️ NYC Airbnb ETL Dashboard")
+st.title(" NYC Airbnb ETL Dashboard")
 
 try:
     df = load_data()
